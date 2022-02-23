@@ -42,7 +42,7 @@ class App extends React.Component {
     return <div className="app">
       <Editor
         ref={this.editor}
-        debug={false}
+        debug={true}
       />
       {/*<div className="bottom">*/}
       {/*  <a href="https://github.com/daybrush/moveable"*/}

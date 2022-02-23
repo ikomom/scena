@@ -113,9 +113,12 @@ export default class Viewport extends React.PureComponent<{
 
   public getLastChildInfo(id: string) {
     const info = this.getInfo(id);
-    const children = info.children!;
+    if (info) {
+      const children = info.children!;
 
-    return children[children.length - 1];
+      return children[children.length - 1];
+    }
+    return undefined;
   }
 
   public getNextInfo(id: string) {
@@ -217,7 +220,6 @@ export default class Viewport extends React.PureComponent<{
         children.push(info);
       }
     });
-
     return new Promise(resolve => {
       this.forceUpdate(() => {
         resolve({
@@ -352,6 +354,7 @@ export default class Viewport extends React.PureComponent<{
     return this.move(moved, rootInfo, parentInfo);
   }
 
+  // tslint:disable-next-line:max-line-length
   public moves(infos: Array<{ info: ElementInfo, parentInfo: ElementInfo, prevInfo?: ElementInfo }>): Promise<MovedResult> {
     const container = this.viewportRef.current!;
     const nextInfos = infos.map(info => {

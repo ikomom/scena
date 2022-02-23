@@ -86,10 +86,10 @@ export default class ClipboardManager {
 
     const clipboardData = (e as any).clipboardData as DataTransfer;
     const targets = this.editor.getSelectedTargets();
-    const SavedScenaData = this.editor.saveTargets(targets);
+    const savedScenaData = this.editor.saveTargets(targets);
 
-    this.editor.console.log("copy scena data", SavedScenaData);
-    clipboardData.setData(TYPE_SCENA_LAYERS, JSON.stringify(SavedScenaData));
+    this.editor.console.log("copy scena data", savedScenaData);
+    clipboardData.setData(TYPE_SCENA_LAYERS, JSON.stringify(savedScenaData));
 
     return true;
   }
