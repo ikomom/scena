@@ -19,7 +19,6 @@ function restoreRender(id: string, state: IObject<any>, prevState: IObject<any>,
   const moveableData = editor.moveableData;
   const frame = moveableData.getFrame(el);
 
-
   frame.clear();
   frame.set(state);
   frame.setOrderObject(orders);
